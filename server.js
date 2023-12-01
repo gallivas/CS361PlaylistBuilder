@@ -1,18 +1,19 @@
 'use strict';
 
 // NOTE: Don't change the port number
-const PORT = 3000;
+const PORT = 3500;
 
+// const cors = require('cors');
 const express = require("express");
 const app = express();
 require('dotenv').config();
 app.use(express.static('public'));
+// app.use(cors());
 
 app.use(express.urlencoded({
     extended: true
 }));
 
-console.log(process.env);
 /**
  * Route handler for POST request to the URL /hello
  */
