@@ -15,8 +15,10 @@ async function handleSearch(selectedCity) {
   // Fetch Last.fm tracks
   try {
       const response = await fetch(`http://localhost:3000/standalonePlaylistMicroservice/microservice?startingLocation=${encodeURIComponent(selectedCity)}`);
-      console.log(response);
-      const tracks = response.results.trackmatches.track;
+      const awaitedResponse = await response.json();
+    //   console.log(awaitedResponse);
+      const tracks = awaitedResponse.results.trackmatches.track;
+    //   console.log(tracks);
 
       // Populate the generatedPlaylist div with the list of tracks
       const generatedPlaylistDiv = document.getElementById('generatedPlaylist');
